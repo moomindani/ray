@@ -1,8 +1,8 @@
 # These requirements are used for the CI and CPU-only Docker images so we install CPU only versions of torch.
 # For GPU Docker images, you should install dl-gpu-requirements.txt afterwards.
 
-# TensorFlow 2.20 requires protobuf>=5.28. The affected Python 3.10–3.11
-# Serve release job uses the last TensorFlow compatible with protobuf 4.25.8.
+# TensorFlow 2.20 requires protobuf>=5.28. Python 3.10–3.11 uses the last
+# TensorFlow compatible with the protobuf 5.27.5 latency workaround.
 tensorflow==2.19.1; python_version < '3.12' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 tensorflow==2.20.0; python_version >= '3.12' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 tensorflow-macos==2.19.1; sys_platform == 'darwin' and platform_machine == 'arm64' and python_version < '3.12'
